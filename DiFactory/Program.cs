@@ -1,4 +1,5 @@
 using DiFactory.FirstApproach;
+using DiFactory.SecondApproach;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +9,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDrinkFactory();
+// builder.Services.AddDrinkFactory();
+builder.Services.AddFoodFactory();
 
 var app = builder.Build();
 

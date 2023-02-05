@@ -6,10 +6,13 @@ public static class Factory
     {
         services.AddTransient<IDrink,Tea>();
         services.AddTransient<IDrink, Coffee>();
-        
+        services.AddScoped<Coffee>();
         services.AddSingleton<Func<IEnumerable<IDrink>>>(serviceProvider =>
         {
-            var factoryToBeInjected = () => { return serviceProvider.GetService<IEnumerable<IDrink>>(); };
+            var factoryToBeInjected = () =>
+            {
+                return serviceProvider.GetService<IEnumerable<IDrink>>();
+            };
             return factoryToBeInjected;
         });
 
