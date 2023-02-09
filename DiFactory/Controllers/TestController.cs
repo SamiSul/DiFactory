@@ -1,4 +1,5 @@
 using DiFactory.FirstApproach;
+using DiFactory.NormalApproach;
 using DiFactory.SecondApproach;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,16 +9,16 @@ namespace DiFactory.Controllers;
 [Route("[controller]")]
 public class TestController : ControllerBase
 {
-    private readonly IFoodFactory _foodFactory;
+    private readonly IVehicle _vehicle;
 
-    public TestController(IFoodFactory foodFactory)
+    public TestController(IVehicle vehicle)
     {
-        _foodFactory = foodFactory;
+        _vehicle = vehicle;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
     public IActionResult Get()
     {
-        return Ok(_foodFactory.Create(Food.Chips).Name);
+        return Ok(_vehicle.Name);
     }
 }
